@@ -4,13 +4,15 @@
     package="com.saurabh.homepage">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/plant_illust"
-        android:label="@string/app_name"
+        android:icon="@drawable/logo"
+        android:label="LETTUCE LENS"
         android:roundIcon="@drawable/content_bg"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomePage"
@@ -48,22 +50,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ForgotPassword"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RegisterActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
