@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.saurabh.homepage.R;
 
 import java.util.Calendar;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 public class UserInfo {
     private String name;

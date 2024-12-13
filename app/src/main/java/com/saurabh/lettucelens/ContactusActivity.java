@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.saurabh.homepage.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

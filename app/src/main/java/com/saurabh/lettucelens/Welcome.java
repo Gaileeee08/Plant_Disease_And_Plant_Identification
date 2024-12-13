@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.saurabh.homepage.R;
 
 public class Welcome extends AppCompatActivity {
     VideoView video;

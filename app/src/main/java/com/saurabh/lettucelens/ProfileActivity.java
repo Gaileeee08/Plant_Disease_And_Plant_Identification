@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.saurabh.homepage.R;
 import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -130,7 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
         databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                com.saurabh.homepage.User user = snapshot.getValue(com.saurabh.homepage.User.class);
+                User user = snapshot.getValue(User.class);
                 if (user != null) {
                     fullname = user.name;
                     useremail = firebaseUser.getEmail();

@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".pest_Detection"
+            android:name="com.saurabh.lettucelens.pest_Detection"
             android:exported="false" />
         <activity
             android:name=".new_cam_page"
@@ -29,31 +29,31 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menupage"
+            android:name="com.saurabh.lettucelens.menupage"
             android:exported="false" />
         <activity
-            android:name=".Authentication"
+            android:name="com.saurabh.lettucelens.Authentication"
             android:exported="false" />
         <activity
-            android:name=".CamActive"
+            android:name="com.saurabh.lettucelens.CamActive"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.saurabh.lettucelens.MainActivity"
             android:exported="false" /> <!-- ///////////////////////////////////////////////////////// -->
         <activity
-            android:name=".AboutActivity"
+            android:name="com.saurabh.lettucelens.AboutActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ContactusActivity"
+            android:name="com.saurabh.lettucelens.ContactusActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
+            android:name="com.saurabh.lettucelens.ProfileActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Welcome"
+            android:name="com.saurabh.lettucelens.Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/garden"
-    tools:context=".CamActive">
+    tools:context="com.saurabh.lettucelens.CamActive">
 
     <LinearLayout
         android:layout_width="match_parent"

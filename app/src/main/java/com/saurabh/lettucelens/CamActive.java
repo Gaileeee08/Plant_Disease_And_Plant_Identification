@@ -1,4 +1,4 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -19,8 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.saurabh.homepage.R;
 import com.saurabh.homepage.ml.DiseaseDetection;
-import com.saurabh.homepage.ml.Model;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -29,7 +30,9 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class pest_Detection extends AppCompatActivity {
+
+public class CamActive extends AppCompatActivity {
+
     TextView result, demoTxt, classified, clickHere;
     ImageView imageView;
     Button picture;
@@ -37,7 +40,7 @@ public class pest_Detection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pest_detection);
+        setContentView(R.layout.activity_cam_active);
 
 
         result = findViewById(R.id.result);
@@ -93,7 +96,7 @@ public class pest_Detection extends AppCompatActivity {
 
     private void classifyImage(Bitmap image) {
         try {
-            Model model = Model.newInstance(getApplicationContext());
+            DiseaseDetection model = DiseaseDetection.newInstance(getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224,224, 3}, DataType.FLOAT32);
@@ -116,7 +119,7 @@ public class pest_Detection extends AppCompatActivity {
             }
             inputFeature0.loadBuffer(byteBuffer);
             //run model interface
-            Model.Outputs outputs = model.process(inputFeature0);
+            DiseaseDetection.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidence = outputFeature0.getFloatArray();
@@ -129,7 +132,7 @@ public class pest_Detection extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"rice leaf roller","rice leaf caterpillar","paddy stem maggot","asiatic rice borer","yellow rice borer","rice gall midge","Rice Stemfly","brown plant hopper","white backed plant hopper","small brown plant hopper"};
+            String[] classes = {"Pepper Bell Bacterial Spot","Healthy Pepper Bell","Potato Early Blight","Healthy Potato","Potato Late Blight","Tomato Target Spot","Tomato Mosaic Virus","Tomato Yellow Leaf Curl Virus","Tomato Bacterial Spot","Tomato Early Blight","Healthy Tomato","Tomato Late Blight","Tomato Leaf Mold","Tomato Septori Leaf Spot","Tomato Spider Mites"};
             result.setText(classes[maxPos]);
             result.setOnClickListener(new View.OnClickListener() {
                 @Override

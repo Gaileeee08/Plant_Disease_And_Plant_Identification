@@ -1,26 +1,19 @@
-package com.saurabh.homepage;
+package com.saurabh.lettucelens;
 
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.view.*;
 import android.view.MenuItem;
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+import com.saurabh.homepage.R;
 
 
 public class MainActivity extends AppCompatActivity {
