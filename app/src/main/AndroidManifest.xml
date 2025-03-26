@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.saurabh.homepage">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo"
@@ -17,17 +20,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomePage"
         android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="my_meta_data"
+            android:value="some_value" />
+
+        <activity
+            android:name=".SoilDetection"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name="com.saurabh.lettucelens.pest_Detection"
             android:exported="false" />
-        <activity
-            android:name=".new_cam_page"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name="com.saurabh.lettucelens.menupage"
             android:exported="false" />
@@ -49,11 +56,11 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.saurabh.lettucelens.ProfileActivity"
+            android:name="com.saurabh.lettucelens.RegisterActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.saurabh.lettucelens.Welcome"
+            android:name="com.saurabh.lettucelens.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,6 +68,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.saurabh.lettucelens.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.saurabh.lettucelens.Welcome"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"
-            android:text="@string/plant_disease_detection"
+            android:text="@string/soil_detect"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -39,7 +39,7 @@
             android:layout_width="311dp"
             android:layout_height="292dp"
             android:layout_gravity="center"
-            android:background="@drawable/img"
+            android:background="@drawable/soil_detection"
             android:scaleType="fitCenter" />
 
     </LinearLayout>

@@ -72,6 +72,16 @@ public class ProfileActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.you);
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                authProfile.signOut();
+                Toast.makeText(ProfileActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
@@ -152,18 +162,21 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1000) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri imageuri = data.getData();
-//                profileimg.setImageURI(imageuri);
+                profileimg.setImageURI(imageuri);
 
                 uploadImagetoFirebase(imageuri);
             }
         }
     }
+
 
     private void uploadImagetoFirebase(Uri imageuri) {
         StorageReference fileRef = storageReference.child("User/" + authProfile.getCurrentUser().getUid() + "profile.jpg");
