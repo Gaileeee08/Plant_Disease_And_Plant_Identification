@@ -30,6 +30,12 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+//firebase
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class CamActive extends AppCompatActivity {
 
@@ -134,6 +140,7 @@ public class CamActive extends AppCompatActivity {
             }
             String[] classes = {"Healthy Lettuce", "Bacterial Leaf Spot", "Downy Mildew", "Powdery Mildew", "Septoria Blight", "Shepherd Purse Weeds", "Viral", "Wilt" };
             result.setText(classes[maxPos]) ;
+
             result.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -141,6 +148,28 @@ public class CamActive extends AppCompatActivity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q="+result.getText())));
                 }
             });
+// 🔥 FIREBASE: Save result to Firestore
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> prediction = new HashMap<>();
+            prediction.put("result", classes[maxPos]);
+            prediction.put("confidence", maxConfidence);
+            prediction.put("timestamp", FieldValue.serverTimestamp());
+
+// Optional: Save the user ID if using Firebase Auth
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (currentUser != null) {
+                prediction.put("user", currentUser.getUid());
+            }
+
+            db.collection("predictions")
+                    .add(prediction)
+                    .addOnSuccessListener(doc -> {
+                        Toast.makeText(this, "Prediction saved!", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Failed to save prediction", Toast.LENGTH_SHORT).show();
+                    });
 
             model.close();
         }catch (IOException e){
