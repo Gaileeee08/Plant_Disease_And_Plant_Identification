@@ -132,8 +132,8 @@ public class CamActive extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Pepper Bell Bacterial Spot","Healthy Pepper Bell","Potato Early Blight","Healthy Potato","Potato Late Blight","Tomato Target Spot","Tomato Mosaic Virus","Tomato Yellow Leaf Curl Virus","Tomato Bacterial Spot","Tomato Early Blight","Healthy Tomato","Tomato Late Blight","Tomato Leaf Mold","Tomato Septori Leaf Spot","Tomato Spider Mites"};
-            result.setText(classes[maxPos]);
+            String[] classes = {"Healthy Lettuce", "Bacterial Leaf Spot", "Downy Mildew", "Powdery Mildew", "Septoria Blight", "Shepherd Purse Weeds", "Viral", "Wilt" };
+            result.setText(classes[maxPos]) ;
             result.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
